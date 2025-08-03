@@ -26,11 +26,20 @@ def predict_home_price():
         return response
         
     try:
-        data = request.get_json()
+        # Try to get JSON data first, then fall back to form data
+        if request.is_json:
+            data = request.get_json()
+        else:
+            data = request.form.to_dict()
+        
+        print("Received data:", data)  # Debug print
+        
         total_sqft = float(data.get('total_sqft', 0))
         location = data.get('location', '')
         bhk = int(data.get('bhk', 0))
         bath = int(data.get('bath', 0))
+        
+        print(f"Processed values: total_sqft={total_sqft}, location={location}, bhk={bhk}, bath={bath}")  # Debug print
         
         estimated_price = util.get_estimated_price(location, total_sqft, bhk, bath)
         
@@ -41,6 +50,7 @@ def predict_home_price():
         return response
         
     except Exception as e:
+        print(f"Error in predict_home_price: {str(e)}")  # Debug print
         return jsonify({"status": "error", "message": str(e)}), 400
 
 if __name__ == "__main__":

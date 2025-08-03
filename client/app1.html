@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangalore Home Price Prediction | RealEstateAI</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="app1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <i class="fas fa-home"></i>
+            <div>
+                <span>RealEstate</span>AI
+                <p>Bangalore Property Experts</p>
+            </div>
+        </div>
+     
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Bangalore Home Price Prediction</h1>
+            <p>Get accurate property valuations in seconds with our AI-powered prediction tool</p>
+            <div class="stats">
+                <div>
+                    <span>5,000+</span>
+                    <p>Properties Analyzed</p>
+                </div>
+                <div>
+                    <span>98%</span>
+                    <p>Accuracy Rate</p>
+                </div>
+                <div>
+                    <span>₹1.2B+</span>
+                    <p>Property Value Predicted</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prediction Form -->
+    <section class="prediction-section">
+        <div class="container">
+            <div class="form-container">
+                <h2><i class="fas fa-calculator"></i> Estimate Property Value</h2>
+                <p>Fill in the details to get an instant price prediction</p>
+                
+                <form class="form">
+                    <div class="form-group">
+                        <label for="uiSqft"><i class="fas fa-ruler-combined"></i> Area (Square Feet)</label>
+                        <input class="area" type="number" id="uiSqft" name="Squareft" value="1000" min="500" max="10000">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label><i class="fas fa-bed"></i> BHK</label>
+                        <div class="switch-field">
+                            <input type="radio" id="radio-bhk-1" name="uiBHK" value="1">
+                            <label for="radio-bhk-1">1</label>
+                            <input type="radio" id="radio-bhk-2" name="uiBHK" value="2" checked>
+                            <label for="radio-bhk-2">2</label>
+                            <input type="radio" id="radio-bhk-3" name="uiBHK" value="3">
+                            <label for="radio-bhk-3">3</label>
+                            <input type="radio" id="radio-bhk-4" name="uiBHK" value="4">
+                            <label for="radio-bhk-4">4</label>
+                            <input type="radio" id="radio-bhk-5" name="uiBHK" value="5">
+                            <label for="radio-bhk-5">5</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label><i class="fas fa-bath"></i> Bath</label>
+                        <div class="switch-field">
+                            <input type="radio" id="radio-bath-1" name="uiBathrooms" value="1">
+                            <label for="radio-bath-1">1</label>
+                            <input type="radio" id="radio-bath-2" name="uiBathrooms" value="2" checked>
+                            <label for="radio-bath-2">2</label>
+                            <input type="radio" id="radio-bath-3" name="uiBathrooms" value="3">
+                            <label for="radio-bath-3">3</label>
+                            <input type="radio" id="radio-bath-4" name="uiBathrooms" value="4">
+                            <label for="radio-bath-4">4</label>
+                            <input type="radio" id="radio-bath-5" name="uiBathrooms" value="5">
+                            <label for="radio-bath-5">5</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="uiLocations"><i class="fas fa-map-marker-alt"></i> Location</label>
+                        <select class="location" id="uiLocations">
+                            <option value="" disabled selected>Choose a Location</option>
+                            <option>Electronic City</option>
+                            <option>Rajaji Nagar</option>
+                            <option>Whitefield</option>
+                            <option>Indira Nagar</option>
+                            <option>Jayanagar</option>
+                            <option>Koramangala</option>
+                            <option>MG Road</option>
+                            <option>Marathahalli</option>
+                        </select>
+                    </div>
+                    
+                    <button class="submit" onclick="onClickedEstimatePrice()" type="button">
+                        <i class="fas fa-chart-line"></i> Estimate Price
+                    </button>
+                    
+                    <div id="uiEstimatedPrice" class="result">
+                        <h3>Estimated Price: <span id="priceValue">₹ 0</span></h3>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="info-panel">
+                <h3>Why Use Our Prediction Tool?</h3>
+                <ul>
+                    <li>
+                        <i class="fas fa-brain"></i>
+                        <div>
+                            <h4>AI-Powered Accuracy</h4>
+                            <p>Our algorithm analyzes thousands of property transactions for precise valuations</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-bolt"></i>
+                        <div>
+                            <h4>Instant Results</h4>
+                            <p>Get property valuations in seconds, not days</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-rupee-sign"></i>
+                        <div>
+                            <h4>Free of Charge</h4>
+                            <p>No hidden fees or subscriptions required</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-map-marked-alt"></i>
+                        <div>
+                            <h4>Bangalore Coverage</h4>
+                            <p>Detailed insights for all major Bangalore localities</p>
+                        </div>
+                    </li>
+                </ul>
+                
+                <div class="testimonial">
+                    <p>"This tool helped me price my property correctly, resulting in a quick sale at the best possible price!"</p>
+                    <div class="author">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Customer">
+                        <div>
+                            <strong>Priya Sharma</strong>
+                            <span>Property Owner, Koramangala</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-home"></i>
+                <span>RealEstateAI</span>
+            </div>
+            <div class="footer-links">
+                <div>
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Property Valuation</a></li>
+                        <li><a href="#">Market Analysis</a></li>
+                        <li><a href="#">Investment Consultation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 RealEstateAI. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="app1.js"></script>
+</body>
+</html>
