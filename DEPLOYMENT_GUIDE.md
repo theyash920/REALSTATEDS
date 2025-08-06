@@ -14,7 +14,9 @@ This guide will help you deploy your Bangalore Home Price Prediction app to Stre
 ```
 MLPROJECTREGRESSION/
 ├── streamlit_app.py              # Main Streamlit application
-├── requirements_streamlit.txt     # Python 3.13 compatible dependencies
+├── requirements_streamlit.txt     # Simplified dependencies
+├── runtime.txt                   # Python version specification
+├── packages.txt                  # System dependencies
 ├── .streamlit/config.toml        # Streamlit configuration
 ├── server/
 │   ├── artifacts/
@@ -90,10 +92,12 @@ If you need to add environment variables in Streamlit Cloud:
 
 ### Common Issues
 
-1. **Python 3.13 Compatibility Issues**
-   - ✅ **FIXED**: Updated `requirements_streamlit.txt` with Python 3.13 compatible versions
-   - Use `numpy>=1.26.0` instead of `numpy==1.24.3`
-   - Use `pandas>=2.1.0` instead of `pandas==2.0.3`
+1. **Python Version Compatibility Issues**
+   - ✅ **FIXED**: Updated `requirements_streamlit.txt` with simplified dependencies
+   - ✅ **FIXED**: Added `runtime.txt` to specify Python 3.11
+   - ✅ **FIXED**: Added `packages.txt` for system dependencies
+   - Use simplified requirements without version constraints
+   - Streamlit Cloud will automatically resolve compatible versions
 
 2. **Model not loading**
    - Ensure `server/artifacts/` folder is in your repository
