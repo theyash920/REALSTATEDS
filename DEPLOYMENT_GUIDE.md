@@ -6,14 +6,16 @@ This guide will help you deploy your Bangalore Home Price Prediction app to Stre
 ## ✅ What We've Done
 - ✅ Converted your Flask app to Streamlit
 - ✅ Created `streamlit_app.py` with all functionality
-- ✅ Created `requirements_streamlit.txt` with dependencies
+- ✅ Created `requirements_streamlit.txt` with Python 3.13 compatible dependencies
+- ✅ Created `.streamlit/config.toml` for proper configuration
 - ✅ Maintained your existing ML model and data
 
 ## 📁 Project Structure
 ```
 MLPROJECTREGRESSION/
 ├── streamlit_app.py              # Main Streamlit application
-├── requirements_streamlit.txt     # Dependencies for Streamlit
+├── requirements_streamlit.txt     # Python 3.13 compatible dependencies
+├── .streamlit/config.toml        # Streamlit configuration
 ├── server/
 │   ├── artifacts/
 │   │   ├── columns.json         # Location data
@@ -88,15 +90,20 @@ If you need to add environment variables in Streamlit Cloud:
 
 ### Common Issues
 
-1. **Model not loading**
+1. **Python 3.13 Compatibility Issues**
+   - ✅ **FIXED**: Updated `requirements_streamlit.txt` with Python 3.13 compatible versions
+   - Use `numpy>=1.26.0` instead of `numpy==1.24.3`
+   - Use `pandas>=2.1.0` instead of `pandas==2.0.3`
+
+2. **Model not loading**
    - Ensure `server/artifacts/` folder is in your repository
    - Check file paths in `streamlit_app.py`
 
-2. **Dependencies missing**
+3. **Dependencies missing**
    - Verify `requirements_streamlit.txt` is in your repo
-   - Check that all versions are compatible
+   - Check that all versions are compatible with Python 3.13
 
-3. **App not deploying**
+4. **App not deploying**
    - Ensure `streamlit_app.py` is in the root directory
    - Check that the file path in Streamlit Cloud is correct
 
