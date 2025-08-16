@@ -21,10 +21,16 @@ function getBathValue() {
   function onClickedEstimatePrice() {
     console.log("Estimate price button clicked");
     var sqft = document.getElementById("uiSqft");
+    if (parseFloat(sqft.value) < 1000) {
+        alert("Minimum 1000 sqft required.");
+        return;
+    }
+    console.log("Estimate price button clicked");
     var bhk = getBHKValue();
     var bathrooms = getBathValue();
     var location = document.getElementById("uiLocations");
     var estPrice = document.getElementById("uiEstimatedPrice");
+
   
     // Debug logging
     console.log("Values being sent:", {
