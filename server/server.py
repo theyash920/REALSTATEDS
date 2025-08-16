@@ -5,6 +5,10 @@ from server import util
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
+@app.route("/")
+def home():
+    return "✅ Flask app is running on Render!"
+
 @app.route('/get_location_names', methods=['GET'])
 def get_location_names():
     try:
